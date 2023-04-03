@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_collaborator_loans,collaborator.loans,loans.model_collaborator_loans,base.group_user,1,1,1,1
+access_collaborator_loans_wizard,collaborator.loans.wizard,loans.model_collaborator_loans_wizard,base.group_user,1,1,1,1
+access_config_loans,config.loans,loans.model_config_loans,base.group_user,1,1,1,1
+access_interest_rate,interest.rate,loans.model_interest_rate,base.group_user,1,1,1,1

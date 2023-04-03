@@ -1,0 +1,37 @@
+<odoo>
+
+    <record id="bom_default_template_view_tree" model="ir.ui.view">
+        <field name="name">bom_default_template_view_tree</field>
+        <field name="model">bom.default.template</field>
+        <field name="arch" type="xml">
+            <tree string="BOM Default Template">
+                <field name="name"/>
+                <field name="product_qty"/>
+                <field name="product_uom_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="bom_default_template_action" model="ir.actions.act_window">
+        <field name="name">BOM Template</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bom.default.template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="bom_default_template_categ" name="BOM Template" parent="sale.menu_sale_config"
+              action="bom_default_template_action" sequence="7"/>
+
+    <record id="account_analytic_line_action" model="ir.actions.act_window">
+        <field name="name">Analytic Amount</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">account.analytic.line</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+        <menuitem id="analytiv_account_print_categ" name="Analytic Account" parent="sale.menu_sale_config"
+              action="account_analytic_line_action" sequence="8"/>
+
+
+</odoo>

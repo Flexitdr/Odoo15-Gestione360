@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="collaborator_loans_wizard_view" model="ir.ui.view">
+        <field name="name">collaborator.loans.wizard.view</field>
+        <field name="model">collaborator.loans.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Collaborator loans wizard">
+                <group>
+                    <group>
+                        <field name="amount_request" widget="monetary"/>
+                        <field name="interest_rate"/>
+                        <field name="quota_quantity"/>
+                        <field name="quota_amount" widget="monetary"/>
+                        <field name="terms_and_conditions"/>
+                        <field name="signature" widget="signature"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="button_submit" string="Submit" type="object" class="btn-primary"
+                            confirm="Are you sure you want to do this?"/>
+                    <button string="Cancel" class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

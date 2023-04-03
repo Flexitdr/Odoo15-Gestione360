@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template_sidebar" xml:space="preserve">
+
+    <t t-inherit="web.NavBar.AppsMenu" t-inherit-mode="extension" owl="1">
+        <xpath expr="//Dropdown" position="replace">
+            <img src="/vanilla_theme_nw/static/src/img/burger-menu.svg" alt="" class="img img-fluid burger-menu" t-on-click="(ev) => onToggleMenu(ev)"/>
+            <ul class="o_menu_apps" role="menu">
+                <li class="dropdown">
+                    <a class="full" data-toggle="dropdown" data-display="static" href="#" accesskey="h">
+                        <i class="fa fa-th-large"/>
+                    </a>
+                    <div class="dropdown-menu" role="menu">
+                        <div class="logo-container">
+<!--                            <img src="/vanilla_theme_nw/static/src/img/logo.png" class="img img-fluid logo-img"/>-->
+                            <img src='/web/binary/company_logo' class="img img-fluid logo-img"/>
+                        </div>
+                        <t t-foreach="menuService.getApps()" t-as="app">
+                            <a t-if="app.children.length" role="menuitem"
+                                t-attf-class="dropdown-item o_app d-flex align-items-center apps_menuitem_link first_level collapsed {{menuService.getCurrentApp() === app ? 'active' : ''}}"
+                                t-att-href="getMenuItemHref(app)"
+                                t-att-data-menu-id="app.menuID"
+                                t-att-data-menu-xmlid="app.xmlID"
+                                t-att-data-action-id="app.actionID"
+                                t-att-name="app.name"
+                                t-att-title="app.name"
+                                data-toggle="collapse"
+                                t-attf-data-target="#menu_{{app.id}}"
+                                aria-expanded="false"
+                            >
+                                    <div class="d-flex align-items-center">
+                                        <div class="o_app_icon">
+                                            <img t-attf-src="data:image/png;base64,{{app.webIconData}}" alt=""/>
+                                        </div>
+                                        <span t-esc="app.name"/>
+                                    </div>
+                                    <i class="fa fa-chevron-down o_app_icon_toggle"/>
+                            </a>
+                            <a t-else="" role="menuitem"
+                                t-attf-class="dropdown-item o_app d-flex align-items-center apps_menuitem_link first_level has-no-child  {{menuService.getCurrentApp() === app ? 'active' : ''}}"
+                                t-att-href="getMenuItemHref(app)"
+                                t-att-data-menu-id="app.menuID"
+                                t-att-data-menu-xmlid="app.xmlID"
+                                t-att-data-action-id="app.actionID"
+                                t-att-name="app.name"
+                                t-att-title="app.name"
+                                t-on-click="(ev) => onNavBarMenuSelection(ev)"
+                            >
+                                    <div class="d-flex align-items-center">
+                                        <div class="o_app_icon">
+                                            <img t-attf-src="data:image/png;base64,{{app.webIconData}}" alt=""/>
+                                        </div>
+                                        <span t-esc="app.name"/>
+                                    </div>
+                            </a>
+                            <ul t-if="app.children.length" t-attf-id="menu_{{app.id}}" class="collapse">
+                                <li 
+                                    t-foreach="app.children" 
+                                    t-as="child_id"
+                                    t-attf-class="{{menuService.getMenuAsTree(child_id).active ? 'active' : ''}}"
+                                >
+                                    <t t-set="child" t-value="menuService.getMenuAsTree(child_id)"/>
+                                    <a t-if="child.children.length" role="menuitem"
+                                        t-attf-class="dropdown-item o_app d-flex align-items-center apps_menuitem_link second_level collapsed"
+                                        t-att-href="getMenuItemHref(child)"
+                                        t-att-data-menu-id="child.id"
+                                        t-att-data-menu-xmlid="child.xmlid"
+                                        t-att-data-action-id="app.actionID"
+                                        t-att-name="child.name"
+                                        t-att-title="child.name"
+                                        data-toggle="collapse"
+                                        t-attf-data-target="#menu_{{child.id}}"
+                                        aria-expanded="false"
+                                    >
+                                        <span t-esc="child.name"/>
+                                        <i class="fa fa-chevron-down o_app_icon_toggle"/>
+                                    </a>
+                                    <a t-else="" role="menuitem"
+                                        t-attf-class="dropdown-item o_app d-flex align-items-center apps_menuitem_link second_level has-no-child  {{menuService.getMenuAsTree(child_id).active ? 'active' : ''}}"
+                                        t-att-href="getMenuItemHref(child)"
+                                        t-att-data-menu-id="child.id"
+                                        t-att-data-menu-xmlid="child.xmlid"
+                                        t-att-data-action-id="app.actionID"
+                                        t-att-name="child.name"
+                                        t-att-title="child.name"
+                                        t-on-click="(ev) => onNavBarMenuSelection(ev)"
+                                    >
+                                        <span t-esc="child.name"/>
+                                    </a>
+                                    <ul t-if="child.children.length" t-attf-id="menu_{{child.id}}" class="collapse">
+                                        <li 
+                                            t-foreach="child.children" 
+                                            t-as="second_child_id"
+                                            t-attf-class="{{menuService.getMenuAsTree(second_child_id).active ? 'active' : ''}}"
+                                        >
+                                        <t t-set="second_child" t-value="menuService.getMenuAsTree(second_child_id)"/>
+                                            <a t-if="second_child.children.length" role="menuitem"
+                                                t-attf-class="dropdown-item o_app d-flex align-items-center apps_menuitem_link third_level collapsed"
+                                                t-att-href="getMenuItemHref(second_child)"
+                                                t-att-data-menu-id="second_child.id"
+                                                t-att-data-menu-xmlid="second_child.xmlid"
+                                                t-att-data-action-id="app.actionID"
+                                                t-att-name="second_child.name"
+                                                t-att-title="second_child.name"
+                                                data-toggle="collapse"
+                                                t-attf-data-target="#menu_{{second_child.id}}"
+                                                aria-expanded="false"
+                                            >
+                                                <span t-esc="second_child.name"/>
+                                                <i class="fa fa-chevron-down o_app_icon_toggle"/>
+                                            </a>
+                                            <a t-else="" role="menuitem"
+                                                t-attf-class="dropdown-item o_app d-flex align-items-center apps_menuitem_link third_level has-no-child  {{menuService.getMenuAsTree(second_child_id).active ? 'active' : ''}}"
+                                                t-att-href="getMenuItemHref(second_child)"
+                                                t-att-data-menu-id="second_child.id"
+                                                t-att-data-menu-xmlid="second_child.xmlid"
+                                                t-att-data-action-id="app.actionID"
+                                                t-att-name="second_child.name"
+                                                t-att-title="second_child.name"
+                                                t-on-click="(ev) => onNavBarMenuSelection(ev)"
+                                            >
+                                                <span t-esc="second_child.name"/>
+                                            </a>
+                                            <ul t-if="second_child.children.length" t-attf-id="menu_{{second_child.id}}" class="collapse">
+                                                <li 
+                                                    t-foreach="second_child.children" 
+                                                    t-as="third_child_id"
+                                                    t-attf-class="{{menuService.getMenuAsTree(third_child_id).active ? 'active' : ''}}"
+                                                >
+                                                <t t-set="third_child" t-value="menuService.getMenuAsTree(third_child_id)"/>
+                                                    <a t-if="third_child.children.length" role="menuitem"
+                                                        t-attf-class="dropdown-item o_app d-flex align-items-center apps_menuitem_link fourth_level collapsed"
+                                                        t-att-href="getMenuItemHref(third_child)"
+                                                        t-att-data-menu-id="third_child.id"
+                                                        t-att-data-menu-xmlid="third_child.xmlid"
+                                                        t-att-data-action-id="app.actionID"
+                                                        t-att-name="third_child.name"
+                                                        t-att-title="third_child.name"
+                                                        data-toggle="collapse"
+                                                        t-attf-data-target="#menu_{{third_child.id}}"
+                                                        aria-expanded="false"
+                                                    >
+                                                        <span t-esc="third_child.name"/>
+                                                        <i class="fa fa-chevron-down o_app_icon_toggle"/>
+                                                    </a>
+                                                    <a t-else="" role="menuitem"
+                                                        t-attf-class="dropdown-item o_app d-flex align-items-center apps_menuitem_link fourth_level has-no-child  {{menuService.getMenuAsTree(third_child_id).active ? 'active' : ''}}"
+                                                        t-att-href="getMenuItemHref(third_child)"
+                                                        t-att-data-menu-id="third_child.id"
+                                                        t-att-data-menu-xmlid="third_child.xmlid"
+                                                        t-att-data-action-id="app.actionID"
+                                                        t-att-name="third_child.name"
+                                                        t-att-title="third_child.name"
+                                                        t-on-click="(ev) => onNavBarMenuSelection(ev)"
+                                                    >
+                                                        <span t-esc="third_child.name"/>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </t>
+                    </div>
+                </li>
+            </ul>
+        </xpath>
+    </t>
+
+</templates>

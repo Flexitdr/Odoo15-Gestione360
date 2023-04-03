@@ -1,0 +1,64 @@
+<odoo>
+    <record id="action_commission_report_by_user" model="ir.actions.report">
+        <field name="name">Commissions Report by User</field>
+        <field name="model">commission.pay.form</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">esd_commissions.report_commission_by_user</field>
+        <field name="report_file">esd_commissions.report_commission_by_user</field>
+        <field name="print_report_name">('Commission Report - %s' % (object.name))</field>
+        <field name="binding_model_id" ref="model_commission_pay_form"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_commission_by_user">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page p-5">
+                         <h2 class="mt16">
+                             <span>Profile : </span>
+                            <span t-field="doc.commission_line_ids.profile_id"/>
+                        </h2>
+
+                        <div class="row mt32 mb32" id="informations">
+                            <div t-if="doc.commission_line_ids.user_id">
+                                <strong>User:</strong>
+                                <p class="m-0" t-field="doc.commission_line_ids.user_id"/>
+                            </div>
+
+                            <table class="table o_main_table">
+                                <thead>
+                                    <tr>
+                                        <th>Commissions</th>
+                                        <th >Invoices</th>
+                                        <th>Costumer</th>
+                                        <th >Date Invoice</th>
+                                        <th>Date Payment</th>
+                                        <th >Net Amount</th>
+                                        <th >Payment Amount</th>
+                                        <th >Commission Amount</th>
+                                        <th >State</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td ><span t-esc="doc.name "/></td>
+                                        <td ><span t-esc="doc.invoice_id.name"/></td>
+                                        <td ><span t-esc="doc.partner_id.name"/></td>
+                                        <td ><span t-esc="doc.date_invoice"/></td>
+                                        <td ><span t-esc="doc.date_payment"/></td>
+                                        <td >RD$ <span t-esc="doc.net_amount"/></td>
+                                        <td >RD$ <span t-esc="doc.payment_amount"/></td>
+                                        <td >RD$ <span t-esc="doc.commission_amount"/></td>
+                                        <td ><span t-esc="doc.state"/></td>
+                                    </tr>
+                                </tbody>
+                                <td ><strong>TOTAL TO PAY:</strong> RD$ <span t-esc="doc.amount_total"/></td>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

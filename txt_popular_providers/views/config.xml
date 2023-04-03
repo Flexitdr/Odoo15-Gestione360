@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="bank_digit_txt_tree" model="ir.ui.view">
+        <field name="name">txt.banks.config</field>
+        <field name="model">txt.banks.config</field>
+        <field name="arch" type="xml">
+            <tree string="Bank configuration Txt" editable="bottom">
+                <field name="banks_id"/>
+                <field name="bank_digit_verify"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="company_txt_tree" model="ir.ui.view">
+        <field name="name">txt.company.config</field>
+        <field name="model">txt.company.config</field>
+        <field name="arch" type="xml">
+            <tree string="Company configuration Txt" editable="bottom">
+                <field name="company_id"/>
+                <field name="company_id_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_bank_digit_txt" model="ir.actions.act_window">
+        <field name="name">Bank Digit TXT</field>
+        <field name="res_model">txt.banks.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_company_txt" model="ir.actions.act_window">
+        <field name="name">Company ID number TXT</field>
+        <field name="res_model">txt.company.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+<!--    <menuitem name="Configuration"-->
+<!--              id="configuration_menu"-->
+<!--              sequence="2"-->
+<!--              parent="loans.menu_collaborator_loans"/>-->
+
+    <menuitem name="Bank Digit TXT"
+              id="config_bank_txt"
+              sequence="3"
+              action="action_bank_digit_txt"
+              parent="account.account_banks_menu"/>
+
+    <menuitem name="Company ID number TXT"
+              id="config_company_txt"
+              sequence="4"
+              action="action_company_txt"
+              parent="account.account_banks_menu"/>
+</odoo>

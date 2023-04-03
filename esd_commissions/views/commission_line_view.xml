@@ -1,0 +1,131 @@
+<odoo>
+  <data>
+    <record id="commission_line_view_tree" model="ir.ui.view">
+      <field name="name">commission_line_view_tree</field>
+      <field name="model">commission.line</field>
+      <field name="arch" type="xml">
+
+        <tree string="Commission Line" create="false" edit="false" delete="false" decoration-danger="is_reverse==True" decoration-primary="from_reverse==True">
+          <field name="date" optional="hide"/>
+          <field name="profile_id" optional="hide"/>
+          <field name="user_id" optional="hide"/>
+          <field name="invoice_id" optional="hide"/>
+          <field name="payment_id" invisible="1"/>
+          <field name="payment" optional="hide"/>
+          <field name="is_financing"/>
+          <field name="fee_qty"/>
+          <field name="payment_int_id" invisible="1"/>
+          <field name="partner_id" optional="show"/>
+          <field name="net_amount" widget="monetary" optional="show"/>
+          <field name="payment_amount" widget="monetary" optional="show"/>
+          <field name="percentage" optional="show"/>
+          <field name="commission_amount" widget="monetary" sum="Commission" optional="show"/>
+          <field name="date_invoice" optional="show"/>
+          <field name="date_payment" optional="show"/>
+          <field name="day_count" optional="show"/>
+          <field name="state" optional="hide"/>
+          <field name="currency_id" invisible="1"/>
+          <field name="is_reverse" invisible="1"/>
+          <field name="from_reverse" invisible="1"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="manager_commission_line_view_tree" model="ir.ui.view">
+      <field name="name">manager_commission_line_view_tree</field>
+      <field name="model">commission.line</field>
+      <field name="arch" type="xml">
+
+        <tree string="Commission Line" decoration-danger="is_reverse==True" decoration-primary="from_reverse==True" editable="top">
+
+          <field name="date" optional="hide"/>
+          <field name="profile_id" optional="hide"/>
+          <field name="user_id" optional="show"/>
+          <field name="invoice_id" optional="hide"/>
+          <field name="payment_id" invisible="1"/>
+          <field name="payment" optional="show"/>
+          <field name="is_financing"/>
+          <field name="fee_qty"/>
+          <field name="payment_int_id" invisible="1"/>
+          <field name="partner_id" optional="show"/>
+          <field name="net_amount" widget="monetary" optional="show"/>
+          <field name="payment_amount" widget="monetary" optional="show"/>
+          <field name="percentage" optional="hide"/>
+          <field name="commission_amount" widget="monetary" sum="Commission" optional="show"/>
+          <field name="date_invoice" optional="hide"/>
+          <field name="date_payment" optional="hide"/>
+          <field name="day_count" optional="show"/>
+          <field name="state" optional="hide"/>
+          <field name="currency_id" invisible="1"/>
+          <field name="is_reverse" invisible="1"/>
+          <field name="from_reverse" invisible="1"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="commission_line_search_view" model="ir.ui.view">
+
+      <field name="name">Commission Line Search View</field>
+      <field name="model">commission.line</field>
+      <field name="arch" type="xml">
+        <search string="Search Commission">
+          <field name="user_id"/>
+          <field name="invoice_id"/>
+          <field name="partner_id"/>
+          <field name="day_count"/>
+          <field name="is_reverse"/>
+          <field name="is_financing"/>
+          <field name="fee_qty"/>
+          <field name="profile_id"/>
+          <field name="state"/>
+          <filter string="My Commissions" name="my_commissions" domain="[('user_id','=',uid)]"/>
+          <filter string="Commissions Team" name="team_commissions" domain="[('manager_id','=',uid)]"/>
+          <filter string="Generate" name="generated" domain="[('state','=','generated')]"/>
+        </search>
+      </field>
+    </record>
+
+    <record id="my_commission_line_action" model="ir.actions.act_window">
+      <field name="name">My Commissions</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">commission.line</field>
+      <field name="domain">[('user_id', '=', uid)]</field>
+      <field name="view_id" ref="commission_line_view_tree"/>
+      <field name="search_view_id" ref="commission_line_search_view"/>
+      <field name="view_mode">tree</field>
+    </record>
+
+    <record id="commission_line_action" model="ir.actions.act_window">
+      <field name="name">Commissions</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">commission.line</field>
+      <field name="domain">[('manager_id','=',uid)]</field>
+      <field name="view_id" ref="commission_line_view_tree"/>
+      <field name="search_view_id" ref="commission_line_search_view"/>
+      <field name="view_mode">tree</field>
+    </record>
+
+    <record id="manager_commission_line_action" model="ir.actions.act_window">
+      <field name="name">Commissions</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">commission.line</field>
+      <field name="view_id" ref="manager_commission_line_view_tree"/>
+      <field name="search_view_id" ref="commission_line_search_view"/>
+      <field name="view_mode">tree</field>
+    </record>
+
+     <menuitem id="commission_line_action_categ" name="Commissions by Team"
+                parent="sale.menu_sale_report"  groups="commission_sale_manager_group" action="commission_line_action" sequence="11"/>
+      <!-- This Menu Item Must have a parent -->
+
+    <menuitem id="manager_commission_line_action_categ" name="Commissions"
+              parent="commission_categ" action="manager_commission_line_action" sequence="0"/>
+
+    <menuitem id="my_commission_line_action_categ" name="My Commissions"
+                parent="sale.sale_menu_root" action="my_commission_line_action" sequence="10"/>
+
+    <menuitem id="account_my_commission_line_action_categ" name="My Commissions"
+                parent="account_commissions_categ"
+                action="my_commission_line_action" sequence="0"/>
+  </data>
+</odoo>

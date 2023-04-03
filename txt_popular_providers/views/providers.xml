@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="providers_banks_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="account.view_partner_property_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='bank_ids']/tree/field[@name='acc_number']" position="after">
+                <field name="code_bank_destination"/>
+                <field name="type_account"/>
+                <field name="operation_code"/>
+                <field name="send_txt"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account_payment_form_inherit" model="ir.ui.view">
+        <field name="name">account.payment</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/field[@name='id']" position="before">
+                <field name="state_pay_txt" invisible="1"/>
+                <widget name="web_ribbon" title="Pending" bg_color="bg-warning" style="margin-top:20px;"
+                        attrs="{'invisible': [('state_pay_txt', '=', 'paid')]}"/>
+                <widget name="web_ribbon" title="Paid" bg_color="bg-success" style="margin-top:20px;"
+                        attrs="{'invisible': [('state_pay_txt', '!=', 'paid')]}"/>
+            </xpath>
+            <field name="date" position="after">
+                <field name="description" string="Description" optional="show"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="account_payment_tree_inherit" model="ir.ui.view">
+        <field name="name">account.payment</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_supplier_payment_tree"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="description" string="Description" optional="show"/>
+                <field name="state_pay_txt" decoration-warning="state_pay_txt=='pending'" decoration-success="state_pay_txt=='paid'"
+                       widget="badge" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

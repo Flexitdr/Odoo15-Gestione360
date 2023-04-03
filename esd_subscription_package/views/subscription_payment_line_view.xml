@@ -1,0 +1,68 @@
+<odoo>
+    <record id="subscription_payment_line_view_tree" model="ir.ui.view">
+        <field name="name">subscription_payment_line_view_tree</field>
+        <field name="model">subscription.payment.line</field>
+        <field name="arch" type="xml">
+            <tree string="Subscription Payment Line" edit="false" create="false" delete="false">
+                <field name="name"/>
+                <field name="currency_id"/>
+                <field name="partner_id"/>
+                <field name="reference_code"/>
+                <field name="company_id"/>
+                <field name="recurring_price" widget="monetary"/>
+                <field name="plan_id"/>
+                <field name="plan_duration"/>
+                <field name="equipment"/>
+                <field name="qty_fee"/>
+                <field name="payment_format"/>
+                <field name="invoice_code"/>
+                <field name="state" decoration-primary="state=='created'" decoration-success="state=='generated'" widget="badge"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="subscription_payment_line_search" model="ir.ui.view">
+        <field name="name">Subscription Payment Line</field>
+        <field name="model">subscription.payment.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter name="by_user" string="Partners" context="{'group_by': 'partner_id'}"/>
+                <filter name="by_user_created" string="State" domain="[('state', '=', 'created')]"/>
+                <filter name="by_user_reference" string="Reference" context="{'group_by': 'reference_code'}"/>
+
+            </search>
+        </field>
+    </record>
+
+    <record id="subscription_payment_line_action" model="ir.actions.act_window">
+        <field name="name">Subscription Payment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">subscription.payment.line</field>
+        <field name="search_view_id" ref="subscription_payment_line_search"/>
+        <field name="context">
+            {'search_default_by_user':1, 'search_default_by_user_created':1, 'search_default_by_user_reference':1}
+        </field>
+        <field name="view_mode">tree</field>
+    </record>
+
+
+    <record id="subscription_payment_line_server_action" model="ir.actions.server">
+        <field name="name">Create Invoice</field>
+        <field name="model_id" ref="esd_subscription_package.model_subscription_payment_line"/>
+        <field name="binding_model_id" ref="esd_subscription_package.model_subscription_payment_line"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            model.create_invoice(records)
+        </field>
+    </record>
+
+
+    <menuitem id="subscription_payment_line_menu"
+              name="Subscriptions Recurrence"
+              parent="subscription_package.subscription_menu_subscriptions"
+              action="subscription_payment_line_action"
+              sequence="11"/>
+
+</odoo>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="upload_file_view_tree" model="ir.ui.view">
+        <field name="name">upload.file</field>
+        <field name="model">upload.file</field>
+        <field name="arch" type="xml">
+            <tree string="Upload File">
+                <field name="date"/>
+                <field name="file"/>
+                <field name="responsible"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="upload_file_view_form" model="ir.ui.view">
+        <field name="name">Upload File</field>
+        <field name="model">upload.file</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="date" string="Name"/>
+                        <field name="responsible" string="Responsible"/>
+                    </group>
+                    <group>
+                        <field name="file_name" invisible="1"/>
+                        <field name="file" string="Subir Archivo" filename="file_name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_upload_file" model="ir.actions.act_window">
+        <field name="name">Upload File</field>
+        <field name="res_model">upload.file</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="upload_file_view_tree"/>
+    </record>
+
+    <menuitem
+            id="menu_upload_file"
+            name="Upload File"
+            parent="esd_onetime_changes.menu_onetime_changes"
+            action="action_upload_file"/>
+</odoo>

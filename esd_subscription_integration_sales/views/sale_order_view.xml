@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_header_custom" inherit_id="sale.report_saleorder_document">
+
+            <xpath expr="//div[hasclass('clearfix')]" position="after">
+                <t t-foreach="doc.order_line" t-as="line">
+                    <t t-if="line.payment_plan_id">
+                    </t>
+                    <t t-else="">
+                         <t t-if="line.product_id.installation_required">
+                            <br/>
+                            <br/>
+                            <span>Mensualidad de mantenimiento (Pagará a partir de la instalación):</span>  <t t-esc="line.product_id.subscription_plan_product_id.name"/>
+                            <br/>
+                            <span>Precio - $RD:</span><t t-esc="line.product_id.subscription_plan_product_id.lst_price"/>
+                             <small>*Precio Sin Impuestos*</small>
+
+                        </t>
+
+                    </t>
+                </t>
+
+            </xpath>
+
+        </template>
+    </data>
+</odoo>

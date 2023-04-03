@@ -1,0 +1,111 @@
+<odoo>
+    <data noupdate="1">
+
+        <record id="esd_product_waterfall" forcecreate="True" model="product.product">
+            <field name="name">Suscripción de Mantenimiento Waterfall P-06CR</field>
+            <field name="detailed_type">service</field>
+            <field name="list_price">0.00</field>
+            <field name="is_subscription">True</field>
+        </record>
+
+        <record id="esd_product_river" forcecreate="True" model="product.product">
+            <field name="name">Suscripción de Mantenimiento River P-09CR</field>
+            <field name="detailed_type">service</field>
+            <field name="list_price">0.00</field>
+            <field name="is_subscription">True</field>
+        </record>
+
+
+        <record id="esd_product_oasis" forcecreate="True" model="product.product">
+            <field name="name">Suscripción de Mantenimiento Oasis CHL-250L</field>
+            <field name="detailed_type">service</field>
+            <field name="list_price">0.00</field>
+            <field name="is_subscription">True</field>
+        </record>
+
+
+         <record id="esd_product_ocean" forcecreate="True" model="product.product">
+            <field name="name">Suscripción de Mantenimiento Ocean CHL-671L </field>
+            <field name="detailed_type">service</field>
+            <field name="list_price">0.00</field>
+            <field name="is_subscription">True</field>
+        </record>
+
+
+        <record id="esd_product_ablandador_hogar" forcecreate="True" model="product.product">
+            <field name="name">Suscripción de Mantenimiento Ablandador Soft R2 (Hogar)</field>
+            <field name="detailed_type">service</field>
+            <field name="list_price">0.00</field>
+            <field name="is_subscription">True</field>
+        </record>
+
+        <record id="esd_product_ablandador_edificio" forcecreate="True" model="product.product">
+            <field name="name">Suscripción de Mantenimiento Ablandador Soft R2 (Edificio)</field>
+            <field name="detailed_type">service</field>
+            <field name="list_price">0.00</field>
+            <field name="is_subscription">True</field>
+        </record>
+
+        <record id="esd_product_ablandador_soft" forcecreate="True" model="product.product">
+            <field name="name">Suscripción de Mantenimiento Ablandador Soft R1</field>
+            <field name="detailed_type">service</field>
+            <field name="list_price">0.00</field>
+            <field name="is_subscription">True</field>
+        </record>
+
+
+        <record id="esd_product_waterfall_visit" forcecreate="True" model="product.product">
+            <field name="name">Visita Waterfall P-06CR</field>
+            <field name="detailed_type">service</field>
+            <field name="list_price">0.00</field>
+            <field name="is_subscription">True</field>
+        </record>
+
+        <record id="esd_product_river_visit" forcecreate="True" model="product.product">
+            <field name="name">Visita River P-09CR</field>
+            <field name="detailed_type">service</field>
+            <field name="list_price">0.00</field>
+            <field name="is_subscription">True</field>
+        </record>
+
+
+        <record id="esd_product_oasis_visit" forcecreate="True" model="product.product">
+            <field name="name">Visita Oasis CHL-250L</field>
+            <field name="detailed_type">service</field>
+            <field name="list_price">0.00</field>
+            <field name="is_subscription">True</field>
+        </record>
+
+
+         <record id="esd_product_ocean_visit" forcecreate="True" model="product.product">
+            <field name="name">Visita Ocean CHL-671L </field>
+            <field name="detailed_type">service</field>
+            <field name="list_price">0.00</field>
+            <field name="is_subscription">True</field>
+        </record>
+
+
+        <record id="esd_product_ablandador_hogar_visit" forcecreate="True" model="product.product">
+            <field name="name">Visita Ablandador Soft R2 (Hogar)</field>
+            <field name="detailed_type">service</field>
+            <field name="list_price">0.00</field>
+            <field name="is_subscription">True</field>
+        </record>
+
+        <record id="esd_product_ablandador_edificio_visit" forcecreate="True" model="product.product">
+            <field name="name">Visita Ablandador Soft R2 (Edificio)</field>
+            <field name="detailed_type">service</field>
+            <field name="list_price">0.00</field>
+            <field name="is_subscription">True</field>
+        </record>
+
+        <record id="esd_product_ablandador_soft_visit" forcecreate="True" model="product.product">
+            <field name="name">Visita Ablandador Soft R1</field>
+            <field name="detailed_type">service</field>
+            <field name="list_price">0.00</field>
+            <field name="is_subscription">True</field>
+        </record>
+
+
+    </data>
+</odoo>

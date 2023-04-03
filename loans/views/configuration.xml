@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="configuration_loans" model="ir.ui.view">
+        <field name="name">config.loans</field>
+        <field name="model">config.loans</field>
+        <field name="arch" type="xml">
+            <tree string="Configuration Loans" editable="bottom">
+                <field name="currency_id" invisible="1"/>
+                <field name="employee_id"/>
+                <field name="amount_pre_approved" widget="monetary"/>
+                <field name="amount_taken" widget="monetary"/>
+                <field name="amount_available" widget="monetary"/>
+                <field name="quota_limits"/>
+                <field name="current_interest_rate"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_config_loans" model="ir.actions.act_window">
+        <field name="name">Configuration Loans</field>
+        <field name="res_model">config.loans</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem name="Configuration"
+              id="configuration_menu"
+              sequence="2"
+              parent="loans.menu_collaborator_loans"/>
+
+    <menuitem name="Configuration"
+              id="config_collaborator"
+              sequence="3"
+              action="action_config_loans"
+              parent="configuration_menu"/>
+</odoo>

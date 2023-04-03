@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="view_account_payment_from_invoices_inherit" model="ir.ui.view">
+            <field name="name">account.payment.form.multi</field>
+            <field name="model">account.payment.register</field>
+            <field name="inherit_id" ref="account.view_account_payment_register_form"/>
+            <field name="arch" type="xml">
+                
+                 <xpath expr="//footer" position="before">
+                     <notebook colspan="4">
+                         <page string="Invoice(s)">
+                            <field name="invoices_id"> 
+                                <tree editable="bottom" create="0">
+                                    <field name='dup_partner_id' readonly="1" force_save="1"/>
+                                    <field name='dup_invoice_id' readonly="1" force_save="1"/>
+                                    <field name='invoice_amount' readonly="1"/>
+                                    <field name='residual_amount' readonly="1"/>
+                                    <field name='amount_to_pay' />
+                                </tree>
+                            </field>
+                         </page>
+                     </notebook>
+                </xpath>
+                <xpath expr="//button[@name='action_create_payments']" position="replace">
+                    <button string="Payment" name="create_payment" type="object" class="oe_highlight"/>
+                </xpath>
+
+            </field>
+        </record>
+	
+
+</odoo>

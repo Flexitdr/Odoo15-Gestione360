@@ -1,0 +1,72 @@
+<odoo>
+  <data>
+
+    <record id="city_view_tree" model="ir.ui.view">
+        <field name="name">city_view_tree</field>
+        <field name="model">esd.country.city</field>
+        <field name="arch" type="xml">
+            <tree string="City" editable="top">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="state_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="city_view_action" model="ir.actions.act_window">
+        <field name="name">City</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">esd.country.city</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="city_view_categ" name="City" parent="contacts.menu_localisation" action="city_view_action" sequence="4"/>
+
+
+    <record id="municipality_view_tree" model="ir.ui.view">
+        <field name="name">municipality_view_tree</field>
+        <field name="model">esd.country.state.municipality</field>
+        <field name="arch" type="xml">
+            <tree string="Municipality" editable="top">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="city_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="municipality_view_action" model="ir.actions.act_window">
+        <field name="name">Municipality</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">esd.country.state.municipality</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="municipality_view_categ" name="Municipality" parent="contacts.menu_localisation" action="municipality_view_action" sequence="4"/>
+
+    <record id="zone_view_tree" model="ir.ui.view">
+        <field name="name">zone_view_tree</field>
+        <field name="model">esd.country.state.municipality.zone</field>
+        <field name="arch" type="xml">
+            <tree string="Zone" editable="top">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="municipality_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="zone_view_action" model="ir.actions.act_window">
+        <field name="name">Zone</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">esd.country.state.municipality.zone</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="zone_view_categ" name="Zone" parent="contacts.menu_localisation" action="zone_view_action" sequence="5"/>
+
+  </data>
+</odoo>

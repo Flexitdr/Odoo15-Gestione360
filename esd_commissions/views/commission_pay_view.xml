@@ -1,0 +1,112 @@
+<odoo>
+  <data>
+      <record id="commission_pay_form_view_form" model="ir.ui.view">
+          <field name="name">commission_pay_form_view_form</field>
+          <field name="model">commission.pay.form</field>
+          <field name="arch" type="xml">
+              <form string="Commission Pay">
+                  <header>
+                      <button name="load_commission"
+                              string="Load Commissions" class="oe_highlight" states="draft"
+                              type="object"/>
+                      <button name="validate_this"
+                              string="Validate" class="oe_highlight" states="generated"
+                              type="object"/>
+                      <button name="paid_this"
+                              string="Paid" class="oe_highlight" states="validated"
+                              type="object" />
+                      <button name="cancel_action"
+                              string="Cancel" states="generated,validated"
+                              type="object"/>
+                      <button name="create_invoice" class="oe_highlight" string="Create invoices" type="object" attrs="{'invisible': [ ('state', '!=', 'validated'), ('external_provider', '=', True)]}"/>
+                      <field name="state" widget="statusbar" statusbar_visible="draft,generated,validated,paid" />
+                  </header>
+                  <sheet>
+                      <div class="oe_button_box" name="button_box">
+                          <button class="oe_stat_button" name="action_view_commissions"
+                            type="object" icon="fa-signal">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="commission_count" widget="statinfo" nolabel="1" class="mr4"/>
+                                </span>
+                                <span class="o_stat_text">Commissions</span>
+                            </div>
+                          </button>
+                      </div>
+
+                      <div class="oe_title">
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                      </div>
+                      <group>
+                          <group>
+                              <field name="from_date"/>
+                          </group>
+                          <group>
+                              <field name="to_date"/>
+                          </group>
+                           <group>
+                              <field name="external_provider"/>
+                          </group>
+                      </group>
+
+                      <notebook>
+                          <page name="commission" string="Commission Lines">
+                              <field name="commission_line_ids">
+                                  <tree>
+                                      <field name="date"/>
+                                      <field name="profile_id"/>
+                                      <field name="user_id"/>
+                                      <field name="invoice_id"/>
+                                      <field name="payment_id"/>
+                                      <field name="partner_id"/>
+                                      <field name="date_invoice"/>
+                                      <field name="date_payment"/>
+                                      <field name="day_count"/>
+                                      <field name="net_amount" sum="Net Amount" widget="monetary"/>
+                                      <field name="payment_amount" sum="Payment Amount" widget="monetary"/>
+                                      <field name="commission_amount" sum="Commission Amount" widget="monetary"/>
+                                      <field name="state"/>
+                                      <field name="currency_id" invisible="1"/>
+                                  </tree>
+                              </field>
+                          </page>
+                      </notebook>
+                      <!-- Totals (only invoices / receipts) -->
+                    <group class="oe_subtotal_footer oe_right">
+                        <field name="currency_id" invisible="1"/>
+                        <field name="amount_commission"/>
+                        <field name="amount_revert"/>
+                        <field name="amount_total" class="oe_subtotal_footer_separator"/>
+                    </group>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+
+      <record id="commission_pay_view_tree" model="ir.ui.view">
+          <field name="name">commission_pay_view_tree</field>
+          <field name="model">commission.pay.form</field>
+          <field name="arch" type="xml">
+              <tree string="Commission Pay">
+                  <field name="name"/>
+                  <field name="from_date"/>
+                  <field name="to_date"/>
+              </tree>
+          </field>
+      </record>
+
+      <record id="commission_pay_form_action" model="ir.actions.act_window">
+          <field name="name">Commission Pay</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">commission.pay.form</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <menuitem id="commission_pay_form_action_categ" name="Pay Commission"
+                parent="commission_categ" action="commission_pay_form_action" sequence="1"/>
+
+
+  </data>
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="tags_form_inherit" model="ir.ui.view">
+            <field name="name">helpdesk.ticket.tag</field>
+            <field name="model">helpdesk.ticket.tag</field>
+            <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_tag_form"/>
+            <field name="arch" type="xml">
+                <field name="color" position="before">
+<!--                    <label for="department" class="oe_edit_only"/>-->
+                    <field name="department" string="Department"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_esd_purchase_comments,purchase.order.comments,esd_purchase.model_purchase_order_comments,base.group_user,1,1,1,1
+access_esd_purchase_stamps,purchase.order.stamp,esd_purchase.model_purchase_order_stamp,base.group_user,1,1,1,1

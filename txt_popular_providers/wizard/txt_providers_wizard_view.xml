@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="txt_providers_wizard_view" model="ir.ui.view">
+        <field name="name">txt.providers.wizard.view</field>
+        <field name="model">txt.providers.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Generate txt Providers wizard">
+                <group>
+                    <group>
+                        <field name="effective_date"/>
+                    </group>
+                    <separator string="Payments Lines"/>
+                    <field name="account_payment_lines">
+                        <tree editable="bottom" create="0">
+                            <field name="name" readonly="1"/>
+                            <field name="partner_id" readonly="1"/>
+                            <field name="amount" readonly="1"/>
+                            <field name="description"/>
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button name="button_submit" string="Submit" type="object" class="btn-primary"
+                            confirm="Are you sure you want to do this?"
+                            context="{'effective_date': effective_date}"/>
+                    <button string="Cancel" class="btn-secondary"
+                            special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

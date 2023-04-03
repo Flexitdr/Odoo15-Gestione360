@@ -1,0 +1,14 @@
+<odoo>
+    <record id="active_subscription_plan_by_payment" model="ir.cron">
+       <field name="name">Activate Plan Subscription</field>
+       <field name="model_id" ref="model_subscription_package"/>
+       <field name="state">code</field>
+       <field name="code">model.active_subscription_plan_by_payment()</field>
+       <field name="user_id" ref="base.user_root"/>
+       <field name='interval_number'>1</field>
+       <field name='interval_type'>days</field>
+       <field name="numbercall">-1</field>
+       <field name="active">False</field>
+       <field name="doall" eval="False"/>
+   </record>
+</odoo>

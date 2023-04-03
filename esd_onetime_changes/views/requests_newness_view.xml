@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="requests_newness_view_tree" model="ir.ui.view">
+        <field name="name">requests.newness</field>
+        <field name="model">requests.newness</field>
+        <field name="arch" type="xml">
+            <tree string="Requests of Newness">
+                <field name="date"/>
+                <field name="requester"/>
+                <field name="employee"/>
+                <field name="state" widget="badge" decoration-info="state=='created'" decoration-success="state=='validated'"
+                  decoration-danger="state=='refuse'" decoration-muted="state=='confirmed'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="requests_search_view" model="ir.ui.view">
+        <field name="name">requests.newness.view</field>
+        <field name="model">requests.newness</field>
+        <field name="arch" type="xml">
+            <search string="Requests">
+                <filter name="group_state" string="State" context="{'group_by':'state'}"/>
+                <filter name="created_state" string="Created" domain="[('state','=','created')]"/>
+                <filter name="confirmed_state" string="Confirmed" domain="[('state','=','confirmed')]"/>
+                <filter name="validated_state" string="Validated" domain="[('state','=','validated')]"/>
+                <filter name="refused_state" string="Refused" domain="[('state','=','refuse')]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="requests_newness_view_form" model="ir.ui.view">
+        <field name="name">Requests of Newness</field>
+        <field name="model">requests.newness</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button id="button_confirm" name="action_confirm" string="Confirm" class="btn-primary" type="object"
+                            states="created,confirmed,refused" confirm="Are you sure you want to do this?"
+                            groups="hr_payroll_community.group_hr_payroll_community_user,hr_payroll_community.group_hr_payroll_community_manager"/>
+                    <button id="button_validate" name="action_validate" string="Validate" class="btn-primary" type="object"
+                            states="created,confirmed,refused" confirm="Are you sure you want to do this?"
+                            groups="hr_payroll_community.group_hr_payroll_community_manager"/>
+                    <button id="button_refuse" name="action_refuse" string="Refuse" class="btn-danger" states="created,confirmed"
+                            type="object" groups="hr_payroll_community.group_hr_payroll_community_manager"/>
+                    <field name="state" widget="statusbar" statusbar_visible="created,confirmed,validated"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date" string="Date"/>
+                        </group>
+                        <group>
+                            <field name="requester" string="Requester"/>
+                            <field name="employee" string="Employee"/>
+                            <field name="pdo" string="Payment"/>
+                        </group>
+                        <group>
+                            <field name="newness_id" string="Newness">
+                                <tree string="Newness">
+                                    <field name="newness"/>
+                                    <field name="amount"/>
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="newness" string="Newness"/>
+                                        </group>
+                                        <group>
+                                            <field name="amount" string="Amount"/>
+                                            <field name="start_date" string="Start Date"/>
+                                            <field name="end_date" string="End Date"/>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </group>
+                        <field name="is_closed" invisible="1" />
+                        <separator string="Reason for refuse" attrs="{'invisible': [('is_closed', '=', False)]}"/>
+                        <group attrs="{'invisible': [('is_closed', '=', False)]}">
+                            <field name="closed_by" string="Refused by"/>
+                            <field name="close_date" string="Refused on"/>
+                            <field name="refuse_reason" string="Refused reason"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_requests_newness" model="ir.actions.act_window">
+        <field name="name">Requests Newness</field>
+        <field name="res_model">requests.newness</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="requests_search_view"/>
+        <field name="context">{'search_default_group_state': 1}</field>
+    </record>
+
+    <menuitem
+            id="menu_requests_newness"
+            name="Requests Newness"
+            parent="esd_onetime_changes.menu_onetime_changes"
+            action="action_requests_newness"/>
+</odoo>

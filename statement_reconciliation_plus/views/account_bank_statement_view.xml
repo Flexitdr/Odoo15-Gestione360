@@ -1,0 +1,54 @@
+<odoo>
+    <record id="view_bank_statement_form_readonly_1" model="ir.ui.view">
+        <field name="name">account.bank.statement.form</field>
+        <field name="model">account.bank.statement</field>
+        <field name="inherit_id" ref="account.view_bank_statement_form"/>
+        <field name="mode">extension</field>
+        <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='button_validate_or_action']"  position="replace">
+                    <button name="button_validate_or_action" string="Validate" type="object" class="oe_highlight" attrs="{'invisible':['|',('all_lines_reconciled','=',False),('state', '!=', 'posted')]}"/>
+                </xpath>
+                
+                <xpath expr="//field[@name='journal_id']" position="after">
+                    <field name="account_id" />
+                </xpath>
+
+                <!-- MERPLUS INICIO -->
+                <xpath expr="//form[1]/sheet[1]/group[1]/group[2]/label[2]" position="replace"/>
+                <xpath expr="//form[1]/sheet[1]/group[1]/group[2]/label[1]" position="replace">
+                    <xpath expr="//field[@name='balance_start']" position="move"/>
+                    <xpath expr="//field[@name='balance_end_real']" position="move"/>
+                    <field name="difference"/>
+                </xpath>
+                <xpath expr="//field[@name='balance_start']" position="attributes">
+                    <attribute name="attrs"></attribute>
+                    <attribute name="class"></attribute>
+                </xpath>
+                <xpath expr="//field[@name='balance_end_real']" position="attributes">
+                    <attribute name="attrs"></attribute>
+                    <attribute name="class"></attribute>
+                </xpath>
+                <!-- MERPLUS FIN -->
+
+                <xpath expr="//page[@name='statement_line_ids']" position="before">
+                    <page string="Journal Entries" name="Move_lines">
+                        <field name="statement_entries_ids" domain="[('account_id','=',account_id),('statement_id', '=', False)]">
+                            <tree editable="bottom" string="Move lines">
+                                <field name="date" />
+                                <field name="journal_id" />
+                                <field name="ref" />
+                                <field name="name" />
+                                <field name="account_id" />
+                                <field name="partner_id" />
+                                <field name="debit" />
+                                <field name="credit" />
+                                <field name="amount_currency" />
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_category_property_form" model="ir.ui.view">
+        <field name="name">partner.over.credit.limit.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="property_account_position_id" position="after">
+                <field name="credit_limit" groups="partner_credit_limit.group_partner_over_credit"/>
+                <field name="over_credit" groups="partner_credit_limit.group_partner_over_credit"/> 
+                <field name="overdue_bills" groups="partner_credit_limit.group_partner_overdue_bills"/>
+                <field name="allow_days" groups="partner_credit_limit.group_partner_overdue_bills"/> 
+                <field name="block_credit" groups="partner_credit_limit.group_partner_overdue_bills"/>                               
+            </field>
+        </field>
+    </record>
+     <!--
+     <record id="view_price_limit_form" model="ir.ui.view">
+        <field name="name">partner.over.credit.limit.price.limit</field>
+        <field name="model">sale.order</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="groups_id" eval="[(6, 0, [ref('partner_credit_limit.group_partner_over_credit')])]" />    
+        <field name="groups_id" eval="[(6, 0, [ref(partner_credit_limit.group_partner_over_credit')])]" /> 
+        <field name="arch" type="xml">
+           
+            <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="attributes">
+            <xpath expr="//field[@name='order_line']/form//field[@name='price_unit']" position="after"> 
+            <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="after"> 
+		           <attribute name="readonly">0</attribute> 
+                    <attribute name="invisible">0</attribute> 
+                     <field name="id"/> 
+		    </xpath> 
+             <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="attributes"> 
+		          <attribute name="readonly">0</attribute>  
+		    </xpath> 
+            
+          <field name="price_unit" position="attributes">
+            <attribute name="readonly">0</attribute>                   
+          </field> 
+        </field>
+    </record> -->
+</odoo>

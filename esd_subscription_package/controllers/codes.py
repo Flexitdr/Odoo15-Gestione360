@@ -1,0 +1,21 @@
+
+CRT_CODES = {
+    49: 'MASTER CARD',
+    50: 'VISA',
+    51: 'AMERICAN EXPRESS',
+    52: 'DISCOVER',
+    54: 'ENROUTE/DINERS',
+    55: 'JCB',
+    56: 'PRIVATE LABEL',
+    57: 'DESJARDINS PL VISA',
+    59: 'EBT',
+    60: 'DEBIT',
+    68: 'VISA DEBIT',
+    69: 'MAESTRO',
+    70: 'MASTER US DEBIT',
+    71: 'DISCOVER DEBIT',
+    75: 'UNIONPAY CREDIT',
+    76: 'UNIONPAY QUASI',
+    77: 'UNIONPAY DEBIT',
+    80: 'GIFT CARD'
+}

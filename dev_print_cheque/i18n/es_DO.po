@@ -1,0 +1,673 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dev_print_cheque
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-17 14:53+0000\n"
+"PO-Revision-Date: 2022-08-17 10:54-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_DO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.1.1\n"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.report_print_cheque_template
+msgid "A/C PAY"
+msgstr "PAGO A / C"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.report_print_cheque_template
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__partner_address_left_margin
+msgid "Address From Left"
+msgstr "Dirección de la izquierda"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__partner_address_top_margin
+msgid "Address From Top"
+msgstr "Dirección desde arriba"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Amount In Digit"
+msgstr "Cantidad en dígitos"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Amount In Words"
+msgstr "Cantidad en palabras"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__amt_m_left
+msgid "Amt From Left"
+msgstr "Monto desde la izquierda"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__amt_m_top
+msgid "Amt From Top"
+msgstr "Monto desde arriba"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.view_dev_print_cheque_wizard_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: dev_print_cheque
+#: model:ir.actions.act_window,name:dev_print_cheque.cheque_setting_action
+#: model:ir.ui.menu,name:dev_print_cheque.cheque_setting_menu
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_tree_view
+msgid "Cheque Format"
+msgstr "Formato de Cheque"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_account_payment__cheque_formate_id
+#: model:ir.model.fields,field_description:dev_print_cheque.field_dev_print_cheque_wizard__cheque_formate_id
+msgid "Cheque Formate"
+msgstr "Formato de Cheque"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__cheque_margin_left
+msgid "Cheque From Left"
+msgstr "Cheque desde la izquierda"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__cheque_margin_top
+msgid "Cheque From Top"
+msgstr "Cheque desde arriba"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Cheque Name"
+msgstr "Nombre Cheque"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_account_payment__cheque_no
+#: model:ir.model.fields,field_description:dev_print_cheque.field_dev_print_cheque_wizard__cheque_no
+msgid "Cheque No"
+msgstr "Cheque  No"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.report_print_cheque_template
+msgid "Cheque No."
+msgstr "Cheque No."
+
+#. module: dev_print_cheque
+#: model:ir.model,name:dev_print_cheque.model_cheque_setting
+msgid "Cheque Setting"
+msgstr "Ajuste de Cheque"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__color
+msgid "Color"
+msgstr "Color"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__c_margin_left
+msgid "Company From Left"
+msgstr "Empresa desde la izquierda"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__c_margin_top
+msgid "Company From Top"
+msgstr "Empresa desde arriba"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__create_uid
+#: model:ir.model.fields,field_description:dev_print_cheque.field_dev_print_cheque_wizard__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__create_date
+#: model:ir.model.fields,field_description:dev_print_cheque.field_dev_print_cheque_wizard__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.report_print_cheque_template
+msgid "Credit"
+msgstr "Credito"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields.selection,name:dev_print_cheque.selection__cheque_setting__date_formate__dd_mm
+msgid "DD MM"
+msgstr "DD MM"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.report_print_cheque_template
+msgid "Date"
+msgstr "Fecha"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Date Digit From Left"
+msgstr "Dígito de fecha desde la izquierda"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__date_formate
+msgid "Date Formate"
+msgstr "Formato de fecha"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__date_m_top
+msgid "Date From Top"
+msgstr "Fecha desde arriba"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.report_print_cheque_template
+msgid "Date:"
+msgstr "Fecha"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.report_print_cheque_template
+msgid "Debit"
+msgstr "Debito"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__set_default
+msgid "Default Template"
+msgstr "Plantilla predeterminada"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.report_print_cheque_template
+msgid "Description"
+msgstr "Descripción"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__display_name
+#: model:ir.model.fields,field_description:dev_print_cheque.field_dev_print_cheque_wizard__display_name
+msgid "Display Name"
+msgstr "Nombre para Mostrar"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__e_d_m_left
+msgid "Eight Digit"
+msgstr "Octavo dígito"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__fi_d_m_left
+msgid "Fifth Digit"
+msgstr "Quinto dígito"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__f_d_m_left
+msgid "First Digit"
+msgstr "Primer dígito"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_partner_bold
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Font Bold"
+msgstr "Negrita"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__font_size
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Font Size"
+msgstr "Tamaño de la fuente"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_footer_text_bold
+msgid "Footer Font Bold"
+msgstr "Fuente de pie de página en negrita"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__footer_font_size
+msgid "Footer Font Size"
+msgstr "Tamaño de fuente del pie de página"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__footer_m_left
+msgid "Footer From Left"
+msgstr "Pie de página desde la izquierda"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__footer_m_top
+msgid "Footer From Top"
+msgstr "Pie de página desde arriba"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__cheque_footer_text
+msgid "Footer Text"
+msgstr "Texto de pie de página"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__fo_d_m_left
+msgid "Fourth Digit"
+msgstr "Cuarto dígito"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_account_payment__text_free
+#: model:ir.model.fields,field_description:dev_print_cheque.field_dev_print_cheque_wizard__text_free
+msgid "Free Text"
+msgstr "Texto libre"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__amt_w_m_left
+msgid "From First Left"
+msgstr "Desde la primera a la izquierda"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__amt_w_m_top
+msgid "From First Top"
+msgstr "Desde la primera parte superior"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__s_sig_m_left
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "From Left"
+msgstr "Desde la izquierda"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__amt_w_s_m_left
+msgid "From Sec Left"
+msgstr "Desde segundo a la izquierda"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__amt_w_s_m_top
+msgid "From Sec Top"
+msgstr "Desde Sec Top"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__s_sig_m_top
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "From Top"
+msgstr "Desde arriba"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,help:dev_print_cheque.field_cheque_setting__word_in_f_line
+msgid ""
+"How Many Words You want to print in first line, The rest will go in second "
+"line"
+msgstr ""
+"Cuántas palabras desea imprimir en la primera línea, el resto irá en la "
+"segunda línea"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__id
+#: model:ir.model.fields,field_description:dev_print_cheque.field_dev_print_cheque_wizard__id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_dev_print_cheque_wizard__invoice_id
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__journal_margin_left
+msgid "Journal From Left"
+msgstr "Diario desde la izquierda"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__journal_margin_top
+msgid "Journal From Top"
+msgstr "Diario desde arriba"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting____last_update
+#: model:ir.model.fields,field_description:dev_print_cheque.field_dev_print_cheque_wizard____last_update
+msgid "Last Modified on"
+msgstr "Última Modificación el"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__write_uid
+#: model:ir.model.fields,field_description:dev_print_cheque.field_dev_print_cheque_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Última Modificación Por"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__write_date
+#: model:ir.model.fields,field_description:dev_print_cheque.field_dev_print_cheque_wizard__write_date
+msgid "Last Updated on"
+msgstr "Última Modificación por"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields.selection,name:dev_print_cheque.selection__cheque_setting__date_formate__mm_dd
+msgid "MM DD"
+msgstr "MM DD"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: dev_print_cheque
+#: code:addons/dev_print_cheque/wizard/dev_print_cheque_wizard.py:0
+#, python-format
+msgid "No any payment Create for this invoice"
+msgstr "No hay ningún pago Crear para esta factura"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__f_one_margin_left
+msgid "One From Left"
+msgstr "Uno desde la izquierda"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__f_one_margin_top
+msgid "One From Top"
+msgstr "Uno desde arriba"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.report_print_cheque_template
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__partner_m_left
+msgid "Partner From Left"
+msgstr "Socio desde la izquierda"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__partner_m_top
+msgid "Partner From Top"
+msgstr "Socio desde arriba"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_account_payment__partner_text
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__partner_text
+#: model:ir.model.fields,field_description:dev_print_cheque.field_dev_print_cheque_wizard__partner_text
+msgid "Partner Title"
+msgstr "Título del socio"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__acc_pay_m_left
+msgid "Pay From Left"
+msgstr "Pagar desde la izquierda"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__acc_pay_m_top
+msgid "Pay From Top"
+msgstr "Pagar desde arriba"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_dev_print_cheque_wizard__payment_id
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.report_print_cheque_template
+msgid "Payment"
+msgstr "Pagos"
+
+#. module: dev_print_cheque
+#: model:ir.model,name:dev_print_cheque.model_account_payment
+#: model:ir.model.fields,field_description:dev_print_cheque.field_dev_print_cheque_wizard__payment_ids
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields.selection,name:dev_print_cheque.selection__cheque_setting__partner_text__prefix
+msgid "Prefix"
+msgstr "Prefijo"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_acc_pay
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Print A/C PAY"
+msgstr "Imprimir A / C PAY"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Print Address"
+msgstr "Imprimir dirección"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_amount
+msgid "Print Amount"
+msgstr "Imprimir Monto"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_amount_word
+msgid "Print Amount Words"
+msgstr "Imprimir Monto en palabras"
+
+#. module: dev_print_cheque
+#: model:ir.actions.act_window,name:dev_print_cheque.action_invoice_print_cheque
+#: model:ir.actions.report,name:dev_print_cheque.action_report_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.view_account_move_print_cheque_form
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.view_dev_print_cheque_wizard_form
+msgid "Print Cheque"
+msgstr "Imprimir cheque"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_cheque_no
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Print Cheque No"
+msgstr "Imprimir No cheque"
+
+#. module: dev_print_cheque
+#: model:ir.model,name:dev_print_cheque.model_dev_print_cheque_wizard
+msgid "Print Cheque Wizard"
+msgstr "Asistente de Cheque"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_company
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Print Company"
+msgstr "Imprimir Empresa"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_currency
+msgid "Print Currency"
+msgstr "Imprimir Moneda"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__print_partner_address
+msgid "Print Customer Address"
+msgstr "Imprimir dirección del cliente"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_date
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Print Date"
+msgstr "Fecha de impresion"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Print Fitst Signature"
+msgstr "Imprimir Primera firma"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_print_footer_text
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Print Footer Text"
+msgstr "Imprimir texto de pie de página"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_free_one
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Print Free Text One"
+msgstr "Imprimir texto libre uno"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_free_two
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Print Free Text Two"
+msgstr "Imprimir texto libre dos"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__print_journal
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Print Journal"
+msgstr "Contabilidad. Imprimir diario"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_partner
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Print Partner"
+msgstr "Socio de impresión"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Print Second Signature"
+msgstr "Imprimir segunda firma"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_f_line_sig
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Print Signature"
+msgstr "Firma de impresión"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_star
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Print Star"
+msgstr "Imprimir estrella"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_stub
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.cheque_setting_form_view
+msgid "Print Stub"
+msgstr "Imprimir talón"
+
+#. module: dev_print_cheque
+#: model:ir.model,name:dev_print_cheque.model_report_dev_print_cheque_cheque_report
+msgid "Print cheque From Account Move"
+msgstr "Imprimir cheque de la cuenta Mover"
+
+#. module: dev_print_cheque
+#: model:ir.model,name:dev_print_cheque.model_report_dev_print_cheque_report_print_cheque
+msgid "Print cheque From Account Payment"
+msgstr "Imprimir cheque desde el pago de la cuenta"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.report_print_cheque_template
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__s_d_m_left
+msgid "Second Digit"
+msgstr "Segundo dígito"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_s_line_sig
+msgid "Second Print Signature"
+msgstr "Firma de la segunda impresión"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__date_seprator
+msgid "Seperator"
+msgstr "Separador"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__se_d_m_left
+msgid "Seven Digit"
+msgstr "Siete dígitos"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__f_sig_m_left
+msgid "Sign From Left"
+msgstr "Firmar desde la izquierda"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__f_sig_m_top
+msgid "Sign From Top"
+msgstr "Firmar desde arriba"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__si_d_m_left
+msgid "Six Digit"
+msgstr "Seis dígitos"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__word_in_f_line
+msgid "Split Words After"
+msgstr "Palabras divididas después"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__stub_margin_left
+msgid "Stub From Left"
+msgstr "Stub desde la izquierda"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__stub_margin_top
+msgid "Stub From Top"
+msgstr "Stub desde arriba"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields.selection,name:dev_print_cheque.selection__cheque_setting__partner_text__suffix
+msgid "Suffix"
+msgstr "Sufijo"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__t_d_m_left
+msgid "Third Digit"
+msgstr "Tercer dígito"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__f_two_margin_left
+msgid "Two From Left"
+msgstr "Dos desde la izquierda"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__f_two_margin_top
+msgid "Two From Top"
+msgstr "Dos desde arriba"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.report_print_cheque_template
+msgid "Type"
+msgstr "Tipo"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_word_bold
+#, fuzzy
+msgid "Word Font Bold"
+msgstr "Word Font Bold"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__is_star_word
+msgid "Word Print Star"
+msgstr "Imprimir Estrellas en las palabras"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields.selection,name:dev_print_cheque.selection__cheque_setting__year_formate__yy
+msgid "YY"
+msgstr "YY"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields.selection,name:dev_print_cheque.selection__cheque_setting__year_formate__yyyy
+msgid "YYYY"
+msgstr "YYYY"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,field_description:dev_print_cheque.field_cheque_setting__year_formate
+msgid "Year Format"
+msgstr "Formato de año"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.report_print_cheque_template
+#, fuzzy
+msgid "_______________________"
+msgstr "_______________________"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,help:dev_print_cheque.field_cheque_setting__is_star
+msgid "if true then print 3 star before and after Amount"
+msgstr "si es verdadero, imprima 3 estrellas antes y después de Cantidad"
+
+#. module: dev_print_cheque
+#: model:ir.model.fields,help:dev_print_cheque.field_cheque_setting__is_star_word
+msgid "if true then print 3 star before and after Words Amount"
+msgstr ""
+"si es verdadero, entonces imprima 3 estrellas antes y después Cantidad de "
+"palabras"
+
+#. module: dev_print_cheque
+#: model_terms:ir.ui.view,arch_db:dev_print_cheque.view_dev_print_cheque_wizard_form
+msgid "or"
+msgstr "o"

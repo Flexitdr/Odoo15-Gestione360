@@ -1,0 +1,14 @@
+<odoo>
+    <record id="create_recurrence" model="ir.cron">
+       <field name="name">Create Recurrence Job</field>
+       <field name="model_id" ref="model_account_move"/>
+       <field name="state">code</field>
+       <field name="code">model.create_invoices_and_fee()</field>
+       <field name="user_id" ref="base.user_root"/>
+       <field name='interval_number'>1</field>
+       <field name='interval_type'>days</field>
+       <field name="numbercall">-1</field>
+       <field name="active">False</field>
+       <field name="doall" eval="False"/>
+   </record>
+</odoo>

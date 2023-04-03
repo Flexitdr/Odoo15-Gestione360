@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="txt_payroll_action_inherit" model="ir.ui.view">
+        <field name="name">hr.payslip</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll_community.view_hr_payslip_tree"/>
+        <field name="arch" type="xml">
+            <tree>
+                <header>
+                    <button name="button_txt_payroll_wizard" string="Generate Txt for paid" type="object"
+                            class="btn-success"/>
+                </header>
+            </tree>
+        </field>
+    </record>
+
+<!--    <record id="account_txt_search_view" model="ir.ui.view">-->
+<!--        <field name="name">account.payment.view</field>-->
+<!--        <field name="model">account.payment</field>-->
+<!--        <field name="inherit_id" ref="account.view_account_payment_search"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//search/field[@name='name']" position="before">-->
+<!--                <filter name="group_state" string="Txt state" context="{'group_by':'state_pay_txt'}"/>-->
+<!--                <filter name="not_paid_state" string="Not paid txt" domain="[('state_pay_txt','=','pending')]"/>-->
+<!--                <filter name="paid_state" string="Paid txt" domain="[('state_pay_txt','=','paid')]"/>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <record id="seq_payroll" model="ir.sequence">
+        <field name="name">Header seq payroll txt</field>
+        <field name="code">header.sequence.payroll</field>
+        <field name="prefix"/>
+        <field name="padding">7</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="seq_transactions_payroll" model="ir.sequence">
+        <field name="name">Transaction sequence payroll txt</field>
+        <field name="code">transaction.sequence.payroll</field>
+        <field name="prefix"/>
+        <field name="padding">7</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="reference_number_seq_payroll" model="ir.sequence">
+        <field name="name">Reference number sequence payroll txt</field>
+        <field name="code">reference.number.sequence.payroll</field>
+        <field name="prefix"/>
+        <field name="padding">10</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="field_name_seq_payroll" model="ir.sequence">
+        <field name="name">Field name sequence payroll txt</field>
+        <field name="code">field.name.sequence.payroll</field>
+        <field name="prefix"/>
+        <field name="padding">7</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="azul_codes_view_tree" model="ir.ui.view">
+        <field name="name">azul.codes</field>
+        <field name="model">azul.codes</field>
+        <field name="arch" type="xml">
+            <tree string="Azul Codes" export_xlsx="false">
+                <field name="name"/>
+                <field name="partner"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="azul_codes_view_form" model="ir.ui.view">
+        <field name="name">Azul Codes</field>
+        <field name="model">azul.codes</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" string="Name"/>
+                    </group>
+                    <group>
+                        <field name="partner" string="Partner"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_azul_codes" model="ir.actions.act_window">
+        <field name="name">Azul Codes</field>
+        <field name="res_model">azul.codes</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="menu_azul_codes"
+            name="Azul Codes"
+            parent="contacts.menu_contacts"
+            action="action_azul_codes"
+            sequence="3"/>
+</odoo>

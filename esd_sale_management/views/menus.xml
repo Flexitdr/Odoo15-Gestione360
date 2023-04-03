@@ -1,0 +1,36 @@
+<odoo>
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="financing_conf_categ" name="Financing"
+              parent="sale.menu_sale_config" sequence="25"/>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="esd_financing_plan_view_action_categ"
+              name="Financing Plan"
+              parent="financing_conf_categ"
+              action="esd_financing_plan_view_action"
+              sequence="0"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="offers_categ" name="Offers" parent="sale.menu_sale_config" sequence="24"/>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="type_document_action_categ" name="Type of Document"
+              parent="sale.menu_sale_config" action="type_document_action" sequence="0"/>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="esd_offer_sale_view_action_categ" name="Offers"
+              parent="offers_categ"
+              action="esd_offer_sale_view_action" sequence="0"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="banks_categ" name="Banks" parent="account.menu_finance" sequence="3"/>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="payment_bank_line_action_categ" name="Sales to Pay by Bank"
+              parent="banks_categ" action="payment_bank_line_action" sequence="0"/>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="esd_payment_plan_fee_action_categ" name="Fee Plan" parent="account.menu_finance_receivables"
+              action="esd_payment_plan_fee_action" sequence="20"/>
+
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <record model="ir.module.category" id="module_partner_credit_limit">
+       <field name="name">Parner</field>
+       <field name="sequence">104</field>
+   </record>
+
+   <record model="res.groups" id="group_partner_over_credit">
+      <field name="name">Mostrar en Clientes Límite Créditos</field>
+      <field name="category_id" ref="module_partner_credit_limit"/>
+   </record>
+
+   <record model="res.groups" id="group_partner_overdue_bills">
+      <field name="name">Facturar con Facturas Vencidas</field>
+      <field name="category_id" ref="module_partner_credit_limit"/>
+   </record>   
+</odoo>

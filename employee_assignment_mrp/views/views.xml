@@ -1,0 +1,20 @@
+<odoo>
+  <data>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="mrp_production_form_inherit_employee_assignment_mrp" model="ir.ui.view">
+        <field name="name">mrp_production_form_inherit_employee_assignment_mrp</field>
+        <field name="model">mrp.production</field>
+        <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='user_id']" position="before">
+                <!-- Add your fields or attributes here -->
+              <field name="employee_responsable_ids" attrs="{'readonly': [('state', '!=', 'draft')]}" widget="many2many_tags"/>
+            </xpath>
+
+        </field>
+    </record>
+
+  </data>
+</odoo>

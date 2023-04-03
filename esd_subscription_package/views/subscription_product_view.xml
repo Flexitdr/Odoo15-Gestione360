@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+      <record id="esd_product_subscription_template" model="ir.ui.view">
+        <field name="name">esd_product_subscription_template</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="subscription_package.product_template_inherit_subscription" />
+        <field name="arch" type="xml">
+
+          <field name="subscription_plan_id"  position="after">
+                <field name="subscription_plan_product_id" string="Subscription Product"/>
+                <field name="visit_plan_product_id" string="Visit Product"/>
+          </field>
+        </field>
+    </record>
+  </data>
+
+</odoo>

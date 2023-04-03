@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_txt_banks_config_payroll,txt.bank.payroll,txt_popular_payroll.model_txt_bank_payroll,base.group_user,1,1,1,1
+access_txt_company_config_payroll,txt.company.payroll,txt_popular_payroll.model_txt_company_payroll,base.group_user,1,1,1,1
+access_txt_payroll_wizard,txt.payroll.wizard,txt_popular_payroll.model_txt_payroll_wizard,base.group_user,1,1,1,1

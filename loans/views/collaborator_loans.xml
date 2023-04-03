@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="collaborator_loans_view_tree" model="ir.ui.view">
+        <field name="name">collaborator.loans</field>
+        <field name="model">collaborator.loans</field>
+        <field name="arch" type="xml">
+            <tree string="Collaborator Loans">
+                <field name="collaborator_name"/>
+                <field name="loan_date"/>
+                <field name="loan_number"/>
+                <field name="loan_type"/>
+                <field name="loan_status"/>
+                <field name="loan_amount"/>
+                <field name="loan_balance"/>
+                <field name="quota_status"/>
+                <field name="delay_amount"/>
+                <field name="state" widget="badge" decoration-warning="state=='in_validation'" decoration-success="state=='finalized'"
+                  decoration-danger="state=='refused'" decoration-muted="state=='legal'" decoration-info="state=='in_action'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="loans_search_view" model="ir.ui.view">
+        <field name="name">collaborator.loans.view</field>
+        <field name="model">collaborator.loans</field>
+        <field name="arch" type="xml">
+            <search string="Loans">
+                <filter name="group_state" string="State" context="{'group_by':'state'}"/>
+                <filter name="in_validation_state" string="In Validation" domain="[('state','=','in_validation')]"/>
+                <filter name="in_action_state" string="In Action" domain="[('state','=','in_action')]"/>
+                <filter name="finalized_state" string="Finalized" domain="[('state','=','finalized')]"/>
+                <filter name="legal_state" string="Legal" domain="[('state','=','legal')]"/>
+                <filter name="refused_state" string="Refused" domain="[('state','=','refused')]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="collaborator_loans_view_form" model="ir.ui.view">
+        <field name="name">Collaborator Loans</field>
+        <field name="model">collaborator.loans</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+<!--                    <button id="button_confirm" name="action_confirm" string="Confirm" class="btn-primary" type="object"-->
+<!--                            states="created,confirmed,refused" confirm="Are you sure you want to do this?"-->
+<!--                            groups="hr_payroll_community.group_hr_payroll_community_user,hr_payroll_community.group_hr_payroll_community_manager"/>-->
+<!--                    <button id="button_validate" name="action_validate" string="Validate" class="btn-primary" type="object"-->
+<!--                            states="created,confirmed,refused" confirm="Are you sure you want to do this?"-->
+<!--                            groups="hr_payroll_community.group_hr_payroll_community_manager"/>-->
+                    <button id="button_wizard" name="button_wizard" string="Requests Loan" class="btn-primary" type="object"
+                            states="draft"/>
+                    <button id="button_refuse" name="action_refuse" string="Refuse" class="btn-danger"
+                            states="in_validation,in_action,"
+                            type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,in_validation,in_action,finalized,legal"
+                           options="{'clickable':1}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="collaborator_name" string="Collaborator name"/>
+                            <field name="collaborator_number" string="Collaborator number"/>
+                            <field name="actual_position" string="Actual position"/>
+                            <field name="sex" string="Sex"/>
+                            <field name="telephone" string="Telephone"/>
+                            <field name="mobile" string="Mobile"/>
+                            <field name="email" string="Email"/>
+                            <field name="address" string="Address"/>
+                        </group>
+                        <group>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="amount_pre_approved" string="Total amount of credit approved" widget="monetary"/>
+                            <field name="amount_loans_taken" string="Total amount of loans taken" widget="monetary"/>
+                            <field name="amount_available" string="Total amount of credit available" widget="monetary"/>
+                            <field name="quota_limits" string="Quota limit"/>
+                            <field name="current_interest_rate" string="Current interest rate"/>
+                        </group>
+                        <field name="is_visible" invisible="1"/>
+                        <div attrs="{'invisible' : [('state', '=', 'draft')]}">
+                            <separator string="Loan info"/>
+                            <group>
+                                <field name="loan_date" string="Loan date"/>
+                                <field name="loan_number" string="Loan number"/>
+                                <field name="loan_type" string="Loan type"/>
+                                <field name="loan_status" string="Loan status"/>
+                                <field name="loan_amount" string="Loan amount"/>
+                                <field name="interest_rate" string="Interest rate"/>
+                                <field name="quota_status" string="Quota status"/>
+                                <field name="next_payment_date" string="Next payment date"/>
+                                <field name="quota_amount" string="Quota amount"/>
+                                <field name="delay_amount" string="Delay amount"/>
+                                <field name="other_charges" string="Other charges"/>
+                                <field name="loan_balance" string="Loan balance"/>
+                            </group>
+                        </div>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_collaborator_loans" model="ir.actions.act_window">
+        <field name="name">Collaborator Loans</field>
+        <field name="res_model">collaborator.loans</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="loans_search_view"/>
+        <field name="context">{'search_default_group_state': 1}</field>
+    </record>
+
+    <menuitem name="Collaborator loans"
+              id="menu_collaborator_loans"
+              sequence="1"
+              action="action_collaborator_loans"
+              web_icon="loans,static/description/icon.png"/>
+</odoo>

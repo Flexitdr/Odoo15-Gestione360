@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="stamp_company_tree_view" model="ir.ui.view">
+            <field name="name">purchase.order.stamp</field>
+            <field name="model">purchase.order.stamp</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="stamp" string="Stamp"/>
+                    <field name="company" string="Company"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="stamp_company_form_view" model="ir.ui.view">
+            <field name="name">Stamp Purchase Order</field>
+            <field name="model">purchase.order.stamp</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="file_name" invisible="1"/>
+                            <field name="stamp" string="Stamp" filename="file_name"/>
+                            <field name="company" string="Company"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_stamp_company" model="ir.actions.act_window">
+            <field name="name">Stamp Purchase Order</field>
+            <field name="res_model">purchase.order.stamp</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="menu_stamp_company"
+            name="Stamp purchase orders"
+            parent="esd_purchase.menu_purchase_orders"
+            action="action_stamp_company"
+            sequence="3"/>
+
+    </data>
+</odoo>

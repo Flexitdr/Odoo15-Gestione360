@@ -1,0 +1,65 @@
+<odoo>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="view_order_form_inherit_mrp_process_and_sales" model="ir.ui.view">
+        <field name="name">view_order_form_inherit_mrp_process_and_sales</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="has_bom_branding"/>
+            </xpath>
+
+            <xpath expr="//page[@name='order_lines']" position="after">
+                <page name="bom_mrp" string="BOM MRP" attrs="{'invisible': [('has_bom_branding', '=', False)]}">
+                    <field name="mrp_bom_ids" attrs="{'required': [('has_bom_branding', '=', True)]}" readonly="1">
+                        <tree editable="bottom">
+                            <field name="sale_line_id"/>
+                            <field name="product_id"/>
+                            <field name="product_qty"/>
+                            <field name="product_uom_id"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+
+            <xpath expr="//field[@name='order_line']/tree/field[@name='price_subtotal']" position="before">
+                <!-- Add your fields or attributes here -->
+                <field name="has_bom"/>
+                <field name="name_brand"
+                       attrs="{'invisible': [('has_bom', '=', False)], 'required': [('has_bom', '=', True)]}"/>
+                <button name="create_bom" type="object" string="Add BOM" class="oe_read_only"
+                        attrs="{'invisible': [('has_bom', '=', False)]}" icon="fa-solid fa-bars"/>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="create_bom_sale_view_form" model="ir.ui.view">
+        <field name="name">create_bom_sale_view_form</field>
+        <field name="model">create.bom.sale</field>
+        <field name="arch" type="xml">
+            <form string="Create BOM Sale">
+                <sheet>
+                    <field name="sale_line_id" invisible="1"/>
+                    <field name="order_id" invisible="1"/>
+                    <field name="state" invisible="1"/>
+
+                    <field name="line_ids" attrs="{'readonly': [('state', '!=', 'draft')]}"
+                           context="{'default_sale_line_id': sale_line_id, 'default_order_id': order_id}">
+                        <tree editable="bottom">
+                            <field name="name"/>
+                            <field name="product_id" />
+                            <field name="product_qty"/>
+                            <field name="product_uom_id" />
+                            <field name="sale_line_id" invisible="1"/>
+                            <field name="order_id" invisible="1"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>
