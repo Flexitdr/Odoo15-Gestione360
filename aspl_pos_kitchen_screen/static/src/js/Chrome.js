@@ -68,7 +68,7 @@ odoo.define('aspl_pos_kitchen_screen.Chrome', function(require) {
                                     </div>
                                 '</div>`);
                 $(".alert").removeClass("in").show();
-                $(".alert").delay(200).addClass("in").fadeOut(10000);
+                $(".alert").delay(200).addClass("in").fadeOut(60000);
             }
             _onNotification(notifications){
                 var self = this;
