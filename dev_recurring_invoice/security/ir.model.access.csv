@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+user_recurring_invoice,Recurring Invoice Setting,model_recurring_invoice_setting,account.group_account_invoice,1,1,1,0
+manager_recurring_invoice,Recurring Invoice Setting,model_recurring_invoice_setting,account.group_account_manager,1,1,1,1
+
+user_recurring_invoice_line,Recurring Invoice Line,model_recurring_invoice_line,account.group_account_invoice,1,1,1,1

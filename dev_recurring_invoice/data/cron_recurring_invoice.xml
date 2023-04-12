@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo noupdate="1">
+	<record id="cron_recurring_invoice" model="ir.cron">
+        <field name="name">Recurring Invoice</field>
+        <field name="model_id" ref="model_recurring_invoice_setting"/>
+        <field name="state">code</field>
+        <field name="code">model.cron_action_recurring_invoice()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+    </record>
+</odoo>

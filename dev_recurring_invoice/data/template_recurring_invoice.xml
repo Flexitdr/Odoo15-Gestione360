@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!--
+Copyright (C) 2015 DevIntelle Consulting Service Pvt.Ltd (<http://www.devintellecs.com>).
+
+For Module Support : devintelle@gmail.com  or Skype : devintelle
+ -->
+<odoo>
+    <record id="email_template_recurring_invoice" model="mail.template">
+        <field name="name">Recurring Invoice Template</field>
+        <field name="email_from">${object.company_id.email or '' |safe}</field>
+<!--        <field name="partner_to">${object.notification_user_id.partner_id.id or '' |safe}</field>-->
+        <field name="subject">Invoice Re-occurred</field>
+        <field name="model_id" ref="dev_recurring_invoice.model_recurring_invoice_setting"/>
+        <field name="auto_delete" eval="True"/>
+        <field name="body_html" type="html">
+            <div>
+                <p><b>Hello</b></p>
+                <p>This email informs you that an Invoice is re-occurred </p>
+                <p>Access re-occurred Invoice from below button</p>
+                % set access_url = object.get_reoccurred_invoice_url()
+                <div style="margin-top:40px;">
+                    <a href="${access_url}" style="background-color: #1abc9c; padding: 20px; text-decoration: none; color: #fff;
+                    border-radius: 5px; font-size: 16px;" class="o_default_snippet_text">View Invoice</a>
+                    <br/><br/><br/>
+                </div>
+                <p>Thank you!</p>
+            </div>
+        </field>
+    </record>
+</odoo>
+<!--<p>Hello, <b>${object.notification_user_id.name |safe}</b></p>-->
