@@ -1,9 +1,0 @@
-<odoo>
-    <template id="esd_purchasequotation_report" inherit_id="purchase.report_purchasequotation_document">
-        <xpath expr="//t[@t-set='address']/div[@t-field='o.partner_id']" position="replace">
-        </xpath>
-
-        <xpath expr="//t[@t-set='address']/p[@t-if='o.partner_id.vat']" position="replace">
-        </xpath>
-    </template>
-</odoo>

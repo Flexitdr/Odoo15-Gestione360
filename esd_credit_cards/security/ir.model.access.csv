@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_esd_credit_cards_admin,credit.cards,esd_credit_cards.model_credit_cards,esd_credit_cards.credit_card_admin,1,1,0,1
-access_esd_credit_cards_user,credit.cards,esd_credit_cards.model_credit_cards,esd_credit_cards.credit_card_user,1,0,0,0
-access_azul_codes,azul.codes,esd_credit_cards.model_azul_codes,base.group_user,1,1,1,1

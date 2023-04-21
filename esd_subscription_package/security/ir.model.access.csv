@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_esd_subscription_package_renew_information,renew.subscription,model_renew_subscription,base.group_user,1,1,1,1
-access_esd_subscription_package_subscription_payment,subscription.payment.line,model_subscription_payment_line,base.group_user,1,1,1,1
-access_esd_subscription_package_visit_subscription_manager,visit.subscription,model_visit_subscription,base.group_user,1,1,1,1
