@@ -366,11 +366,11 @@ class AccountMove(models.Model):
                     "No puede registrar Comprobantes Consumidor Final (02)")
                     .format(NCF))
 
-            elif (
-                not ncf_validation.check_dgii(self.partner_id.vat, NCF)
-                and ncf_validation.is_valid(NCF)
-                and len(NCF) == 11
-            ):
+            #elif (
+             #   not ncf_validation.check_dgii(self.partner_id.vat, NCF)
+               # and ncf_validation.is_valid(NCF)
+               # and len(NCF) == 11
+           # ):
                 raise ValidationError(_(
                     u"NCF NO pasó validación en DGII\n\n"
                     u"¡El número de comprobante *{}* del proveedor "
