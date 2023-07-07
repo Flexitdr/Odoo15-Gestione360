@@ -6,6 +6,10 @@ from odoo import models, fields
 
 
 class ResPartner(models.Model):
-    _inherit = "res.partner"
+    _inherit = 'res.partner'
 
-    related = fields.Selection([("0", "Not Related"), ("1", "Related")], default="0",)
+    related = fields.Selection(
+        [('0', 'Not Related'),
+         ('1', 'Related')],
+        default='0',
+    )

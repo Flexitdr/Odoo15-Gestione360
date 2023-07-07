@@ -73,7 +73,7 @@ class DgiiReport(models.Model):
     #                              'Company',
     #                              default=lambda self: self.env.user.company_id.id,
     #                              required=True)
-    company_id = fields.Many2one('res.company', string='Company',
+    company_id = fields.Many2one('res.company', string='Company', 
                                   required=True,
                                   default=lambda self: self.env.company)
     previous_report_pending = fields.Boolean(
@@ -84,7 +84,7 @@ class DgiiReport(models.Model):
          _("You cannot have more than one report by period."))
     ]
 
-
+    
     def _compute_606_fields(self):
         for rec in self:
             data = {
@@ -130,7 +130,7 @@ class DgiiReport(models.Model):
             rec.purchase_selective_tax = abs(data['purchase_selective_tax'])
             rec.purchase_other_taxes = abs(data['purchase_other_taxes'])
             rec.purchase_legal_tip = abs(data['purchase_legal_tip'])
-
+    
     def _compute_607_fields(self):
         for rec in self:
             data = {
@@ -165,7 +165,7 @@ class DgiiReport(models.Model):
             rec.sale_other_taxes = abs(data['sale_other_taxes'])
             rec.sale_legal_tip = abs(data['sale_legal_tip'])
 
-
+    
     def _compute_608_fields(self):
         for rec in self:
             cancel_line_ids = self.env['dgii.reports.cancel.line'].search([
@@ -173,7 +173,7 @@ class DgiiReport(models.Model):
             ])
             rec.cancel_records = len(cancel_line_ids)
 
-
+    
     def _compute_609_fields(self):
         for rec in self:
             data = {
@@ -313,7 +313,7 @@ class DgiiReport(models.Model):
 
         return super(DgiiReport, self).create(vals)
 
-
+    
     def write(self, vals):
         self._validate_date_format(vals.get('name'))
 
@@ -468,11 +468,8 @@ class DgiiReport(models.Model):
 
         return True if (payment_date and same_minor_period) else False
 
-
+    
     def _compute_606_data(self):
-
-        type_tax_report = self.env['dgii.report.configuration'].search([('tax_invoice_generated', '=', True)]).id
-
         for rec in self:
             PurchaseLine = self.env['dgii.reports.purchase.line']
             PurchaseLine.search([('dgii_report_id', '=', rec.id)]).unlink()
@@ -494,11 +491,14 @@ class DgiiReport(models.Model):
                     'line': line,
                     'rnc_cedula': rnc_ced[0] if rnc_ced else False,
                     'identification_type': rnc_ced[1] if rnc_ced else False,
-                    'expense_type': inv.l10n_do_expense_type if inv.l10n_do_expense_type else False,
+                    'expense_type': inv.l10n_do_expense_type
+                    if inv.l10n_do_expense_type else False,
                     'fiscal_invoice_number': inv.l10n_latam_document_number,
-                    'modified_invoice_number': inv.l10n_do_origin_ncf if inv.move_type == 'in_refund' else False,
+                    'modified_invoice_number': inv.l10n_do_origin_ncf if
+                    inv.move_type == 'in_refund' else False,
                     'invoice_date': inv.invoice_date,
-                    'payment_date': inv.payment_date if show_payment_date else False,
+                    'payment_date': inv.payment_date if
+                    show_payment_date else False,
                     'service_total_amount': inv.service_total_amount,
                     'good_total_amount': inv.good_total_amount,
                     'invoiced_amount': inv.amount_untaxed_signed,
@@ -509,8 +509,10 @@ class DgiiReport(models.Model):
                     'purchase_perceived_itbis': 0,  # Falta computar en la fact
                     'purchase_perceived_isr': 0,  # Falta computarlo en la fact
                     'isr_withholding_type': inv.isr_withholding_type,
-                    'withholded_itbis': inv.withholded_itbis if type_tax_report else 0,
-                    'income_withholding': inv.income_withholding if type_tax_report else 0,
+                    'withholded_itbis': inv.withholded_itbis if
+                    show_payment_date else 0,
+                    'income_withholding': inv.income_withholding if
+                    show_payment_date else 0,
                     'selective_tax': inv.selective_tax,
                     'other_taxes': inv.other_taxes,
                     'legal_tip': inv.legal_tip,
@@ -661,7 +663,7 @@ class DgiiReport(models.Model):
 
         return op_dict
 
-
+    
     def _set_payment_form_fields(self, payments_dict):
         for rec in self:
             rec.cash = payments_dict.get('cash')
@@ -683,7 +685,7 @@ class DgiiReport(models.Model):
             income_dict[invoice.l10n_do_income_type] += invoice.amount_untaxed_signed
         return income_dict
 
-
+    
     def _set_income_type_fields(self, income_dict):
         for rec in self:
             rec.opr_income = income_dict.get('01')
@@ -772,7 +774,7 @@ class DgiiReport(models.Model):
     def _set_csmr_fields_vals(self, csmr_dict):
         self.write(csmr_dict)
 
-
+    
     def _compute_607_data(self):
         for rec in self:
             SaleLine = self.env['dgii.reports.sale.line']
@@ -862,33 +864,21 @@ class DgiiReport(models.Model):
                     csmr_dict['csmr_swap'] += values['swap']
                     csmr_dict['csmr_others'] += values['others']
 
-                if inv.journal_id.show_non_payer_in_report:
-                    line += 1
-                    values.update({'line': line})
-                    SaleLine.create(values)
-
-                    if str(values.get('fiscal_invoice_number'))[-10:-8] == \
+                line += 1
+                values.update({'line': line})
+                SaleLine.create(values)
+                if str(values.get('fiscal_invoice_number'))[-10:-8] == \
                         '02' and inv.amount_untaxed_signed < 250000:
-                        excluded_line += 1
-                        # Excluye las facturas de Consumo
-                        # con monto menor a 250000 solo del txt
-                        pass
-                    else:
-                        report_data += self.process_607_report_data(values) + '\n'
+                    excluded_line += 1
+                    # Excluye las facturas de Consumo
+                    # con monto menor a 250000 solo del txt
+                    pass
                 else:
-                    if str(values.get('fiscal_invoice_number'))[-10:-8] == '02' and inv.amount_untaxed_signed < 250000:
-                        #excluded_line += 1 Retirado por Pedro Nunez Araujo
-                        # Excluye las facturas de Consumo
-                        # con monto menor a 250000 solo del txt
-                        pass
-                    else:
-                        line += 1
-                        values.update({'line': line})
-                        SaleLine.create(values)
-                        report_data += self.process_607_report_data(values) + '\n'
+                    report_data += self.process_607_report_data(values) + '\n'
 
                 for k in payment_dict:
-                    payment_dict[k] += payments[k] * -1 if inv.move_type == 'out_refund' else payments[k]
+                    payment_dict[k] += payments[k] * -1 if inv.move_type == \
+                        'out_refund' else payments[k]
 
             for k in op_dict:
                 self.env['dgii.reports.sale.summary'].create(op_dict[k])
@@ -926,7 +916,7 @@ class DgiiReport(models.Model):
             'cancel_binary': base64.b64encode(open(file_path, 'rb').read())
         })
 
-
+    
     def _compute_608_data(self):
         for rec in self:
             CancelLine = self.env['dgii.reports.cancel.line']
@@ -1001,7 +991,7 @@ class DgiiReport(models.Model):
             'exterior_binary': base64.b64encode(open(file_path, 'rb').read())
         })
 
-
+    
     def _compute_609_data(self):
         for rec in self:
             ExteriorLine = self.env['dgii.reports.exterior.line']
@@ -1043,7 +1033,7 @@ class DgiiReport(models.Model):
 
             self._generate_609_txt(report_data, line)
 
-
+    
     def _generate_report(self):
         # Drop 607 NCF Operations for recompute
         self.env['dgii.reports.sale.summary'].search([('dgii_report_id', '=',
@@ -1055,7 +1045,7 @@ class DgiiReport(models.Model):
         self._compute_609_data()
         self.state = 'generated'
 
-
+    
     def generate_report(self):
         if self.state == 'generated':
             action = self.env.ref(
@@ -1072,7 +1062,7 @@ class DgiiReport(models.Model):
                             inv.third_withheld_itbis,
                             inv.third_income_withholding]) else False
 
-
+    
     def _invoice_status_sent(self):
         for report in self:
             PurchaseLine = self.env['dgii.reports.purchase.line']
@@ -1102,7 +1092,7 @@ class DgiiReport(models.Model):
                 else:
                     inv.fiscal_status = 'done'
 
-
+    
     def state_sent(self):
         for report in self:
             report._invoice_status_sent()

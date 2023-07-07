@@ -4,7 +4,6 @@
 
 from odoo import models, fields
 
-
 class AccountAccount(models.Model):
     _inherit = 'account.account'
 
@@ -38,6 +37,10 @@ class AccountAccount(models.Model):
         ('A47', 'A47 - Ventas de Servicios en Nombre de Terceros'),
         ('A50', 'A50 - Total Notas de Crédito emitidas con más de 30 días'),
         ('A51', 'A51 - ITBIS llevado al Costo'),
+        ('A52', 'A52 - ITBIS Facturado'),
+        ('A53', 'A53 - Selectivo al consumo'),
+        ('A54', 'A54 - Otros impuestos'),
+        ('A55', 'A55 - Propina Legal'),
         ('I02', 'I02 - Ingresos por Exportaciones de Bienes o Servicios'),
         ('I03', 'I03 - '
          'Ingresos por ventas locales de bienes o servicios exentos'),
@@ -50,5 +53,16 @@ class AccountAccount(models.Model):
          'Saldos Compensables Autorizados (Otros Impuestos) y/o Reembolsos'),
         ('I35', 'I35 - Recargos'), ('I36', 'I36 - Interés Indemnizatorio'),
         ('I39', 'I39 - Servicios sujetos a Retención Personas Físicas'),
-        ('ISR', 'Retención de Renta por Terceros')
+        ('ISR', 'ISR - Retención de Renta por Terceros')
     ], string='Account Fiscal Type', copy=False)
+    
+    isr_retention_type = fields.Selection([
+        ('01', '01 - Alquileres'),
+        ('02', '02 - Honorarios por Servicios'),
+        ('03', '03 - Otras Rentas'),
+        ('04', '04 - Rentas Presuntas'),
+        ('05', '05 - Intereses Pagados a Personas Jurídicas'),
+        ('06', '06 - Intereses Pagados a Personas Físicas'),
+        ('07', '07 - Retención por Proveedores del Estado'),
+        ('08', '08 - Juegos Telefónicos')
+    ], string='ISR Retention Type')

@@ -1,0 +1,35 @@
+<odoo>
+  <data>
+      <record id="dgii_report_configuration" model="ir.ui.view">
+          <field name="name">dgii_report_configuration_tree</field>
+          <field name="model">dgii.report.configuration</field>
+          <field name="arch" type="xml">
+              <tree string="Dgii Configuration" editable="bottom">
+                  <field name="name"/>
+                  <field name="tax_invoice_paid"/>
+                  <field name="tax_invoice_generated"/>
+              </tree>
+          </field>
+
+      </record>
+
+      <record id="dgii_report_conf_tree" model="ir.actions.act_window">
+        <field name="name">Dgii Report Configuration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">dgii.report.configuration</field>
+        <field name="view_mode">tree</field>
+      </record>
+
+
+      <menuitem id="account_dgii_configu" name="Dgii Report"
+              parent="account.menu_finance_configuration"
+              sequence="26"
+              groups="account.group_account_user"/>
+
+      <menuitem id="dgii_report_config_menu"
+                action="dgii_report_conf_tree"
+                name="Report Configuration"
+                parent="account_dgii_configu"
+                sequence="5"/>
+  </data>
+</odoo>
