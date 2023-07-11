@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_txt_providers_wizard,txt.providers.wizard,txt_popular_providers.model_txt_providers_wizard,base.group_user,1,1,1,1
-access_txt_banks_config,txt.banks.config,txt_popular_providers.model_txt_banks_config,base.group_user,1,1,1,1
-access_txt_company_config,txt.company.config,txt_popular_providers.model_txt_company_config,base.group_user,1,1,1,1
